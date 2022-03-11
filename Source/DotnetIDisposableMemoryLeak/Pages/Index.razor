@@ -1,0 +1,12 @@
+﻿@page "/"
+
+<a href="/leaky-page">Click here to go to leaky page</a>
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        GC.Collect();
+    }
+}

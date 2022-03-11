@@ -1,0 +1,24 @@
+﻿@page "/leaky-page"
+@using DotnetIDisposableMemoryLeak.Services
+
+<h1>NonDisposable</h1>
+<ul>
+    <li>Created: @NonDisposable.CreatedCount</li>
+    <li>Finalized: @NonDisposable.FinalizedCount</li>
+</ul>
+
+<h1>Disposable</h1>
+<ul>
+    <li>Created: @Disposable.CreatedCount</li>
+    <li>Disposed: @Disposable.DisposedCount</li>
+    <li>Finalized: @Disposable.FinalizedCount</li>
+</ul>
+
+@code
+{
+    [Inject] private TransientDisposableService Disposable { get; set; } = null!;
+    [Inject] private TransientNonDisposableService NonDisposable { get; set; } = null!;
+}
+
+<a href="/">Click here to go back to the main page</a>
+
